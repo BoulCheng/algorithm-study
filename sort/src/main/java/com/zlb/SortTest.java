@@ -17,5 +17,9 @@ public class SortTest {
         int[] bubbleSortedArr = bubbleSort.sort(original);
         System.out.println(JSON.toJSONString(bubbleSortedArr));
 
+        SelectionSort selectionSort = new SelectionSort();
+        int[] selectionSortedArr = selectionSort.sort(original);
+        System.out.println(JSON.toJSONString(selectionSortedArr));
+
     }
 }
