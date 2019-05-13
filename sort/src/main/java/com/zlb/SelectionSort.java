@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class SelectionSort implements ArraySort {
 
     /**
-     * 从小到大排序
+     * 从小到大排序 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾
      * @param original
      * @return
      */
