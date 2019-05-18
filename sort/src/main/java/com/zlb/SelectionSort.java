@@ -1,5 +1,7 @@
 package com.zlb;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.Arrays;
 
 /**
@@ -35,13 +37,42 @@ public class SelectionSort implements ArraySort {
                     minIndex = j + 1;
                 }
 
-                if (minIndex != i) {
-                    int tmp = arr[i];
-                    arr[i] = arr[minIndex];
-                    arr[minIndex] = tmp;
-                }
+            }
+
+            //应该放在for循环外面 在一轮比较完再更新值 而不是每次比较更新值
+            if (minIndex != i) {
+                int tmp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = tmp;
             }
         }
         return arr;
     }
+
+
+    public static void main(String[] args) {
+        int[] original = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+
+        sort18(original);
+        System.out.println(JSON.toJSONString(original));
+
+    }
+
+    public static void sort18(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                int tmp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = tmp;
+            }
+        }
+    }
+
 }

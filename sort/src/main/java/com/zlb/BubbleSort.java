@@ -1,5 +1,7 @@
 package com.zlb;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.Arrays;
 
 /**
@@ -43,6 +45,56 @@ public class BubbleSort implements ArraySort {
             }
         }
         return arr;
+    }
+
+
+    public static void main(String[] args) {
+
+        int[] arr = new int[]{3, 4, 5, 1, 2, 7, 8, 0, 9, 10};
+        boolean allSorted;
+        for (int i = 1; i < arr.length; i++) {
+            allSorted = true;
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+
+                    allSorted = false;
+                }
+            }
+            if (allSorted) {
+                break;
+            }
+        }
+        System.out.println(JSON.toJSONString(arr));
+
+
+        //18
+        int[] arr2 = new int[]{3, 4, 5, 1, 2, 7, 8, 0, 9, 10};
+        sort18(arr2);
+        System.out.println(JSON.toJSONString(arr2));
+
+    }
+
+    public static void sort18(int[] arr) {
+
+        boolean allSorted;
+        for (int i = 1; i < arr.length; i++) {
+            allSorted = true;
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+
+                    allSorted = false;
+                }
+            }
+            if (allSorted) {
+                break;
+            }
+        }
     }
 
 }
