@@ -88,6 +88,32 @@ public class InsertSort {
         arr = insertSort(arr);
         System.out.println(JSON.toJSONString(arr));
 
+
+        int[] arr2 = {9, 8, 7, 6, 5, 4, 3, 1, 2, 0};
+        sort19(arr2);
+        System.out.println(JSON.toJSONString(arr2));
+
+    }
+
+
+    public static void sort19(int[] arr) {
+
+        for (int i = 1; i < arr.length; i++) {
+            int tmp = arr[i];
+            int index = i;
+            for (int j = i - 1; j >= 0; --j) {
+                //从小到大排序
+                if (arr[j] > tmp) {
+                    arr[j + 1] = arr[j];
+                    index = j;
+                } else {
+                    break;
+                }
+            }
+            if (index != i) {
+                arr[index] = tmp;
+            }
+        }
     }
 
 }

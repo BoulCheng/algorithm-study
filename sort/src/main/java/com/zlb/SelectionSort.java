@@ -56,12 +56,35 @@ public class SelectionSort implements ArraySort {
         sort18(original);
         System.out.println(JSON.toJSONString(original));
 
+
+        int[] original2 = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+
+        sort19(original2);
+        System.out.println(JSON.toJSONString(original2));
+
     }
 
     public static void sort18(int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                int tmp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = tmp;
+            }
+        }
+    }
+
+    public static void sort19(int[] arr) {
+        int min;
+        for (int i = 0; i < arr.length - 1; i++) {
+            min = i;
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[min] > arr[j]) {
                     min = j;
