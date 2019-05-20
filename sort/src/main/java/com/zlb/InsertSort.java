@@ -93,6 +93,12 @@ public class InsertSort {
         sort19(arr2);
         System.out.println(JSON.toJSONString(arr2));
 
+
+        int[] arr3 = {9, 8, 7, 6, 5, 4, 3, 1, 2, 0};
+        sort20(arr3);
+        System.out.println(JSON.toJSONString(arr3));
+
+        System.out.println(JSON.toJSONString(sort20OnWhile(arr3)));
     }
 
 
@@ -114,6 +120,41 @@ public class InsertSort {
                 arr[index] = tmp;
             }
         }
+    }
+
+
+    public static void sort20(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int tmp = arr[i];
+            int index = i;
+            for (int j = i - 1; j >= 0; --j) {
+                if (arr[j] > tmp) {
+                    arr[j + 1] = arr[j];
+                    index = j;
+                }
+            }
+            if (index != i) {
+                arr[index] = tmp;
+            }
+        }
+    }
+
+
+    public static int[] sort20OnWhile(int[] arr1) {
+        int[] arr = Arrays.copyOf(arr1, arr1.length);
+        for (int i = 1; i < arr.length; i++) {
+            int tmp = arr[i];
+            int index = i;
+            while (index > 0 && arr[index - 1] > tmp) {
+                arr[index] = arr[index - 1];
+                --index;
+            }
+
+            if (index != i) {
+                arr[index] = tmp;
+            }
+        }
+        return arr;
     }
 
 }
